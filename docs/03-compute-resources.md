@@ -54,18 +54,18 @@ gcloud compute firewall-rules create kubernetes-the-hard-way-allow-external \
 
 > An [external load balancer](https://cloud.google.com/compute/docs/load-balancing/network/) will be used to expose the Kubernetes API Servers to remote clients.
 
-List the firewall rules in the `kubernetes-the-hard-way` VPC network:
+List the firewall rules in the `kubernetes-the-hard-way-doych` VPC network:
 
 ```
-gcloud compute firewall-rules list --filter="network:kubernetes-the-hard-way"
+gcloud compute firewall-rules list --filter="network:kubernetes-the-hard-way-doych"
 ```
 
 > output
 
 ```
-NAME                                    NETWORK                  DIRECTION  PRIORITY  ALLOW                 DENY
-kubernetes-the-hard-way-allow-external  kubernetes-the-hard-way  INGRESS    1000      tcp:22,tcp:6443,icmp
-kubernetes-the-hard-way-allow-internal  kubernetes-the-hard-way  INGRESS    1000      tcp,udp,icmp
+NAME                                    NETWORK                        DIRECTION  PRIORITY  ALLOW                 DENY
+kubernetes-the-hard-way-allow-external  kubernetes-the-hard-way-doych  INGRESS    1000      tcp:22,tcp:6443,icmp
+kubernetes-the-hard-way-allow-internal  kubernetes-the-hard-way-doych  INGRESS    1000      tcp,udp,icmp
 ```
 
 ### Kubernetes Public IP Address
@@ -73,21 +73,21 @@ kubernetes-the-hard-way-allow-internal  kubernetes-the-hard-way  INGRESS    1000
 Allocate a static IP address that will be attached to the external load balancer fronting the Kubernetes API Servers:
 
 ```
-gcloud compute addresses create kubernetes-the-hard-way \
+gcloud compute addresses create kubernetes-the-hard-way-doych \
   --region $(gcloud config get-value compute/region)
 ```
 
-Verify the `kubernetes-the-hard-way` static IP address was created in your default compute region:
+Verify the `kubernetes-the-hard-way-doych` static IP address was created in your default compute region:
 
 ```
-gcloud compute addresses list --filter="name=('kubernetes-the-hard-way')"
+gcloud compute addresses list --filter="name=('kubernetes-the-hard-way-doych')"
 ```
 
 > output
 
 ```
-NAME                     REGION    ADDRESS        STATUS
-kubernetes-the-hard-way  us-west1  XX.XXX.XXX.XX  RESERVED
+NAME                           REGION    ADDRESS        STATUS
+kubernetes-the-hard-way-doych  us-west1  XX.XXX.XXX.XX  RESERVED
 ```
 
 ## Compute Instances

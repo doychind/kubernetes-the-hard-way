@@ -39,13 +39,13 @@ gcloud auth login
 Next set a default compute region and compute zone:
 
 ```
-gcloud config set compute/region us-west1
+gcloud config set compute/region europe-west1
 ```
 
 Set a default compute zone:
 
 ```
-gcloud config set compute/zone us-west1-c
+gcloud config set compute/zone europe-west1-c
 ```
 
 > Use the `gcloud compute zones list` command to view additional regions and zones.

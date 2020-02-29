@@ -14,7 +14,7 @@ The Kubernetes [networking model](https://kubernetes.io/docs/concepts/cluster-ad
 
 In this section a dedicated [Virtual Private Cloud](https://cloud.google.com/compute/docs/networks-and-firewalls#networks) (VPC) network will be setup to host the Kubernetes cluster.
 
-Create the `kubernetes-the-hard-way` custom VPC network:
+Create the `kubernetes-the-hard-way-doych` custom VPC network:
 
 ```
 gcloud compute networks create kubernetes-the-hard-way-doych --subnet-mode custom
@@ -22,7 +22,7 @@ gcloud compute networks create kubernetes-the-hard-way-doych --subnet-mode custo
 
 A [subnet](https://cloud.google.com/compute/docs/vpc/#vpc_networks_and_subnets) must be provisioned with an IP address range large enough to assign a private IP address to each node in the Kubernetes cluster.
 
-Create the `kubernetes` subnet in the `kubernetes-the-hard-way` VPC network:
+Create the `kubernetes` subnet in the `kubernetes-the-hard-way-doych` VPC network:
 
 ```
 gcloud compute networks subnets create kubernetes \

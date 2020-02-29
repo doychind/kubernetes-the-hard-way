@@ -17,7 +17,7 @@ In this section a dedicated [Virtual Private Cloud](https://cloud.google.com/com
 Create the `kubernetes-the-hard-way` custom VPC network:
 
 ```
-gcloud compute networks create kubernetes-the-hard-way --subnet-mode custom
+gcloud compute networks create kubernetes-the-hard-way-doych --subnet-mode custom
 ```
 
 A [subnet](https://cloud.google.com/compute/docs/vpc/#vpc_networks_and_subnets) must be provisioned with an IP address range large enough to assign a private IP address to each node in the Kubernetes cluster.
@@ -26,7 +26,7 @@ Create the `kubernetes` subnet in the `kubernetes-the-hard-way` VPC network:
 
 ```
 gcloud compute networks subnets create kubernetes \
-  --network kubernetes-the-hard-way \
+  --network kubernetes-the-hard-way-doych \
   --range 10.240.0.0/24
 ```
 
@@ -39,7 +39,7 @@ Create a firewall rule that allows internal communication across all protocols:
 ```
 gcloud compute firewall-rules create kubernetes-the-hard-way-allow-internal \
   --allow tcp,udp,icmp \
-  --network kubernetes-the-hard-way \
+  --network kubernetes-the-hard-way-doych \
   --source-ranges 10.240.0.0/24,10.200.0.0/16
 ```
 
@@ -48,7 +48,7 @@ Create a firewall rule that allows external SSH, ICMP, and HTTPS:
 ```
 gcloud compute firewall-rules create kubernetes-the-hard-way-allow-external \
   --allow tcp:22,tcp:6443,icmp \
-  --network kubernetes-the-hard-way \
+  --network kubernetes-the-hard-way-doych \
   --source-ranges 0.0.0.0/0
 ```
 
